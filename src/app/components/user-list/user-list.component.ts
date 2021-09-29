@@ -38,14 +38,16 @@ export class UserListComponent implements OnInit {
   showUserEditDialog: boolean = false;
 
   public isAllowedToDelete(user: ReturnUser): boolean{
-    if(this.authService.hasPermissions(['ADMINISTRATE'])){
-      if(!user.hasPermissions(['ADMINISTRATE', 'SUPER_ADMINISTRATE'])){
-        return true;
+    if(this.authService.getUsername() != user.username){
+      if(this.authService.hasPermissions(['ADMINISTRATE'])){
+        if(!user.hasPermissions(['ADMINISTRATE', 'SUPER_ADMINISTRATE'])){
+          return true;
+        }
       }
-    }
-    if(this.authService.hasPermissions(['SUPER_ADMINISTRATE'])){
-      if(!user.hasPermissions(['SUPER_ADMINISTRATE'])){
-        return true;
+      if(this.authService.hasPermissions(['SUPER_ADMINISTRATE'])){
+        if(!user.hasPermissions(['SUPER_ADMINISTRATE'])){
+          return true;
+        }
       }
     }
     return false;
