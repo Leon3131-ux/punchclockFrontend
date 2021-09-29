@@ -1,1 +1,24 @@
-<p>company-list works!</p>
+<p-table [value]="companies" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Delete</th>
+      <th>Edit</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-company>
+    <tr>
+      <td>{{company.id}}</td>
+      <td>{{company.name}}</td>
+      <td><p-button label="Edit" (onClick)="editCompany(company)"></p-button></td>
+      <td><button pButton type="button" class="p-button-danger" label="Delete" (click)="deleteCompany(company)"></button></td>
+    </tr>
+  </ng-template>
+</p-table>
+<div class="footer">
+  <p-button (onClick)="createCompany()" label="New"></p-button>
+</div>
+<p-dialog header="Edit Company" [(visible)]="showEditCompanyDialog" [modal]="true" [style]="{'height': '80vh', 'width': '20vw'}">
+  <app-company-save></app-company-save>
+</p-dialog>

@@ -48,7 +48,9 @@ export class UserListComponent implements OnInit {
   }
 
   public deleteUser(user: ReturnUser){
-    this.userService.deleteUser(user).subscribe(() => {});
+    this.userService.deleteUser(user).subscribe(() => {
+      this.users.splice(this.users.indexOf(user), 1);
+    });
   }
 
   private toUser(user: any){

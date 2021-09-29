@@ -1,1 +1,9 @@
-<p>company-save works!</p>
+<div>
+  <form [formGroup]="saveCompanyForm">
+    <span class="p-float-label mt-4">
+      <input id="name" type="text" formControlName="name" pInputText>
+      <label for="name">Name</label>
+    </span>
+  </form>
+  <p-button label="Submit" (onClick)="submitCompany()"></p-button>
+</div>

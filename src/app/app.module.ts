@@ -28,12 +28,14 @@ import { HomeComponent } from './components/home/home.component';
 import {HomeModule} from "./components/home/home.module";
 import {EntryListComponent} from "./components/entry-list/entry-list.component";
 import {UserListComponent} from "./components/user-list/user-list.component";
+import {CompanyListComponent} from "./components/company-list/company-list.component";
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'entries', component: EntryListComponent},
   {path: 'users', component: UserListComponent},
+  {path: 'companies', component: CompanyListComponent},
   {path: '**', redirectTo: '/login'}
 ]
 
