@@ -20,7 +20,7 @@ export class UserSaveComponent implements OnInit {
     private userService: UserService,
     private companyService: CompanyService,
     private permissionService: PermissionService,
-    private authService: AuthService
+    public authService: AuthService
   ) {
     this.userService.userEditEmitter.subscribe(user => {
       this.saveUser = this.returnUserToSaveUser(user);
@@ -46,10 +46,13 @@ export class UserSaveComponent implements OnInit {
         this.companies.push(new Company(0, "None"));
         this.companies = this.companies.concat(companies);
       });
-      this.permissionService.getPermissions().subscribe(permissions => {
-        this.permissions = permissions;
-      })
     }
+    this.permissionService.getPermissions().subscribe(permissions => {
+      this.permissions = permissions;
+      if(this.authService.hasPermissions(['ADMINISTRATE'])){
+        this.permissions.splice(this.permissions.indexOf(<Permission>this.permissions.find(permission => permission.name == 'SUPER_ADMINISTRATE')), 1)
+      }
+    })
   }
 
   private returnUserToSaveUser(returnUser: ReturnUser): SaveUser{

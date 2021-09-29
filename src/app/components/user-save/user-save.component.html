@@ -10,10 +10,10 @@
       <label for="savePassword">Password</label>
     </span>
 
-    <label>Company</label>
-    <p-dropdown [options]="companies" formControlName="companyId" optionValue="id" optionLabel="name"></p-dropdown>
+    <label *ngIf="authService.hasPermissions(['SUPER_ADMINISTRATE'])">Company</label>
+    <p-dropdown *ngIf="authService.hasPermissions(['SUPER_ADMINISTRATE'])" [options]="companies" formControlName="companyId" optionValue="id" optionLabel="name"></p-dropdown>
 
-    <label>Permission</label>
+    <label >Permission</label>
     <p-multiSelect [options]="permissions" formControlName="permissionIds" optionValue="id" optionLabel="name" [selectionLimit]="1"></p-multiSelect>
   </form>
   <p-button label="Submit" (onClick)="submitUser()"></p-button>
