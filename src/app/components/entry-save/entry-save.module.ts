@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {EntrySaveComponent} from "./entry-save.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {CalendarModule} from "primeng/calendar";
 
 
 
@@ -8,8 +10,13 @@ import {EntrySaveComponent} from "./entry-save.component";
   declarations: [
     EntrySaveComponent
   ],
+  exports: [
+    EntrySaveComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    CalendarModule
   ]
 })
 export class EntrySaveModule { }

@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {EntryListComponent} from "./entry-list.component";
+import {TableModule} from "primeng/table";
+import {ButtonModule} from "primeng/button";
+import {DialogModule} from "primeng/dialog";
+import {EntrySaveModule} from "../entry-save/entry-save.module";
 
 
 
@@ -9,7 +13,11 @@ import {EntryListComponent} from "./entry-list.component";
     EntryListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TableModule,
+    ButtonModule,
+    DialogModule,
+    EntrySaveModule
   ]
 })
 export class EntryListModule { }

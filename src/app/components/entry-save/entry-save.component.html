@@ -1,1 +1,9 @@
-<p>entry-save works!</p>
+<div>
+  <form [formGroup]="entrySaveForm">
+    <p-calendar formControlName="checkIn" [timeOnly]="true" hourFormat="24"></p-calendar>
+    <p-button label="check in" (onClick)="submitEntry()"></p-button>
+    <p-calendar formControlName="checkOut" [timeOnly]="true" hourFormat="24"></p-calendar>
+    <p-button label="check out" (onClick)="submitEntry()"></p-button>
+  </form>
+</div>
+

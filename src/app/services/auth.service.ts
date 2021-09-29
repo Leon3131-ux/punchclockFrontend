@@ -36,5 +36,17 @@ export class AuthService {
     return "";
   }
 
+  hasPermission(permissions: string[]): boolean{
+    const token = sessionStorage.getItem('token');
+    if(token){
+      for(let permission of permissions){
+        if(JSON.parse(atob(token.split('.')[1])).permissions.indexOf(permission) != -1){
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
 
 }
