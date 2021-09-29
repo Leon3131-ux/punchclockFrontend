@@ -27,11 +27,13 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { HomeComponent } from './components/home/home.component';
 import {HomeModule} from "./components/home/home.module";
 import {EntryListComponent} from "./components/entry-list/entry-list.component";
+import {UserListComponent} from "./components/user-list/user-list.component";
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'entries', component: EntryListComponent},
+  {path: 'users', component: UserListComponent},
   {path: '**', redirectTo: '/login'}
 ]
 

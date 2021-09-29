@@ -30,7 +30,7 @@ export class EntryService {
     return this.apiService.deleteSingle('/entry/' + entry.id);
   }
 
-  public updateEditEntry(entry: Entry): void{
+  public editEntry(entry: Entry): void{
     this.entryEditEmitter.emit(entry);
   }
 

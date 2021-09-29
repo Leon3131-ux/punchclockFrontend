@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
         );
       }
       if(this.isToday(this.currentEntry.checkIn) || this.isToday(this.currentEntry.checkOut)){
-        this.entryService.updateEditEntry(this.currentEntry);
+        this.entryService.editEntry(this.currentEntry);
       }
     })
   }

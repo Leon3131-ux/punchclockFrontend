@@ -6,7 +6,6 @@
       <th>Check Out</th>
       <th>User</th>
       <th>Edit</th>
-      <th *ngIf="authService.hasPermission(['ADMINISTRATE', 'SUPER_ADMINISTRATE'])">Delete</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-entry>
@@ -14,7 +13,7 @@
       <td>{{entry.id}}</td>
       <td>{{entry.checkIn | date:'short'}}</td>
       <td>{{entry.checkOut | date:'short'}}</td>
-      <td *ngIf="authService.hasPermission(['ADMINISTRATE', 'SUPER_ADMINISTRATE'])">{{entry.user.username}}</td>
+      <td *ngIf="authService.hasPermissions(['ADMINISTRATE', 'SUPER_ADMINISTRATE'])">{{entry.user.username}}</td>
       <td><p-button label="Edit" (onClick)="editEntry(entry)"></p-button></td>
       <td><button pButton type="button" class="p-button-danger" label="Delete" (click)="deleteEntry(entry)"></button></td>
     </tr>

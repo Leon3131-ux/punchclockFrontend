@@ -1,1 +1,20 @@
-<p>user-save works!</p>
+<div>
+  <form [formGroup]="saveUserForm">
+    <span class="p-float-label">
+      <input id="username" type="text" formControlName="username" pInputText>
+      <label for="username">Username</label>
+    </span>
+
+    <span class="p-float-label mt-4">
+      <input id="savePassword" type="text" formControlName="savePassword" pInputText>
+      <label for="savePassword">Password</label>
+    </span>
+
+    <label>Company</label>
+    <p-multiSelect [options]="companies" formControlName="companyId" optionValue="id" optionLabel="name"></p-multiSelect>
+
+    <label>Permission</label>
+    <p-multiSelect [options]="permissions" formControlName="permissionIds" optionValue="id" optionLabel="name"></p-multiSelect>
+  </form>
+  <p-button label="Submit" (onClick)="submitUser()"></p-button>
+</div>

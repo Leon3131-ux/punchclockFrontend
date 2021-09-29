@@ -25,7 +25,7 @@ export class EntryListComponent implements OnInit {
   }
 
   public editEntry(entry: Entry){
-    this.entryService.updateEditEntry(new Entry(entry.id, entry.checkIn, entry.checkOut));
+    this.entryService.editEntry(new Entry(entry.id, entry.checkIn, entry.checkOut));
     this.showEditEntryDialog = true;
   }
 

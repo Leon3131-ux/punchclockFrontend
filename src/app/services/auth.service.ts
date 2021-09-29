@@ -36,7 +36,7 @@ export class AuthService {
     return "";
   }
 
-  hasPermission(permissions: string[]): boolean{
+  hasPermissions(permissions: string[]): boolean{
     const token = sessionStorage.getItem('token');
     if(token){
       for(let permission of permissions){

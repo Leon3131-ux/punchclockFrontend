@@ -5,12 +5,11 @@ import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class CompanyService {
+export class PermissionService {
 
   constructor(private apiService: ApiService) { }
 
-  public getCompanies(): Observable<any>{
-    return this.apiService.getAll('/companies');
+  public getPermissions(): Observable<any>{
+    return this.apiService.getAll('/permissions');
   }
-
 }
