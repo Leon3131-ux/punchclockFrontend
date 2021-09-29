@@ -12,9 +12,14 @@ export class UserService {
   constructor(private apiService: ApiService) { }
 
   @Output() userEditEmitter: EventEmitter<ReturnUser> = new EventEmitter<ReturnUser>();
+  @Output() userSavedEmitter: EventEmitter<any> = new EventEmitter<any>();
 
   public editUser(user: ReturnUser){
     this.userEditEmitter.emit(user);
+  }
+
+  public userSaved(){
+    this.userSavedEmitter.emit();
   }
 
   public getUsers(): Observable<any>{

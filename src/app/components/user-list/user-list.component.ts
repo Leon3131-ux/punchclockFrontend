@@ -15,14 +15,23 @@ export class UserListComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private userService: UserService
-  ) { }
+  ) {
+    this.userService.userSavedEmitter.subscribe(() => {
+      this.userService.getUsers().subscribe(users => {
+        this.users = [];
+        users.forEach((user: any) => {
+          this.users.push(this.toUser(user));
+        });
+      });
+    })
+  }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe(users => {
       users.forEach((user: any) => {
         this.users.push(this.toUser(user));
-      })
-    })
+      });
+    });
   }
 
   users: ReturnUser[] = [];
@@ -51,6 +60,11 @@ export class UserListComponent implements OnInit {
     this.userService.deleteUser(user).subscribe(() => {
       this.users.splice(this.users.indexOf(user), 1);
     });
+  }
+
+  public createUser(){
+    this.userService.editUser(new ReturnUser());
+    this.showUserEditDialog = true;
   }
 
   private toUser(user: any){

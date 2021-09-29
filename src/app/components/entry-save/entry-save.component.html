@@ -1,9 +1,14 @@
-<div>
-  <form [formGroup]="entrySaveForm">
-    <p-calendar formControlName="checkIn" [timeOnly]="true" hourFormat="24"></p-calendar>
-    <p-button label="check in" (onClick)="submitEntry()"></p-button>
-    <p-calendar formControlName="checkOut" [timeOnly]="true" hourFormat="24"></p-calendar>
-    <p-button label="check out" (onClick)="submitEntry()"></p-button>
+<div class="container">
+  <form class="grid align-content-center flex-column " [formGroup]="entrySaveForm">
+    <div class="col mt-3">
+      <p-calendar formControlName="checkIn" [timeOnly]="true" hourFormat="24"></p-calendar>
+    </div>
+    <div class="col mt-3">
+      <p-calendar formControlName="checkOut" [timeOnly]="true" hourFormat="24"></p-calendar>
+    </div>
+    <div class="col mt-3 grid justify-content-center">
+      <p-button label="Submit" (onClick)="submitEntry()"></p-button>
+    </div>
   </form>
 </div>
 

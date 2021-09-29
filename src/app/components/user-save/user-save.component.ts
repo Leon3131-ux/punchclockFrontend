@@ -43,7 +43,8 @@ export class UserSaveComponent implements OnInit {
   ngOnInit(): void {
     if (this.authService.hasPermissions(['SUPER_ADMINISTRATE'])){
       this.companyService.getCompanies().subscribe(companies => {
-        this.companies = companies;
+        this.companies.push(new Company(0, "None"));
+        this.companies = this.companies.concat(companies);
       });
       this.permissionService.getPermissions().subscribe(permissions => {
         this.permissions = permissions;
@@ -74,11 +75,15 @@ export class UserSaveComponent implements OnInit {
   }
 
   private createUser(){
-    this.userService.createUser(this.saveUserForm.getRawValue()).subscribe(() => {})
+    this.userService.createUser(this.saveUserForm.getRawValue()).subscribe(() => {
+      this.userService.userSaved();
+    })
   }
 
   private updateUser(){
-    this.userService.updateUser(this.saveUserForm.getRawValue()).subscribe(() => {})
+    this.userService.updateUser(this.saveUserForm.getRawValue()).subscribe(() => {
+      this.userService.userSaved();
+    })
   }
 
 }
