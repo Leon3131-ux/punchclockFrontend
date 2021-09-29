@@ -1,0 +1,10 @@
+p-toast {
+  z-index: 7000 !important;
+}
+.header{
+  text-align: center;
+  background-color: #00058f;
+  color: white;
+  overflow: hidden;
+  position: sticky; top: 0;
+}
